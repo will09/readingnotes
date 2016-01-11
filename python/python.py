@@ -886,13 +886,124 @@ print ("sorted('Hello, world!') =", sorted('Hello, world!'))
 print ("list(reversed('Hello, world!')) =", list(reversed('Hello, world!')))
 print ("''.join(reversed('Hello, world!')) =", ''.join(reversed('Hello, world!')))
 
-# jump out iteration
+# jump out iteration: 
+# break
 from math import sqrt
 for n in range(99,0,-1):
 	root = sqrt(n)
 	if root == int(root):
 		print (n)
 		break
+
+# continue (rarely used)
+'''
+for x in seq:
+	if condition1: continue
+	if condition2: continue
+	if condition3: continue
+
+	do_something()
+	do_something_else()
+	do_another_thing()
+	etc()
+'''
+# "if" is enough for iteration
+'''
+for x in seq:
+	if not (condition1 or condition2 or condition3):
+		do_something()
+		do_something_else()
+		do_another_thing()
+		etc()
+'''
+
+# while True/break
+# for example with dumy value
+'''
+word = 'dumy'
+while word:
+	word = input('Please enter a word: ')
+	print ('The word was ' + word)
+	'''
+# no dumy value
+'''
+word = input('Please enter a word: ')
+while word:
+	print ('The word was ' + word)
+	word = input('Please enter a word: ')
+'''
+# while True/break
+'''
+while True:
+	word = input('Please enter a word: ')
+	if not word: break
+	print ('The word was ' + word)
+'''
+
+# else
+'''
+broke_out = False
+for x in seq:
+	do_something(x)
+	if condition(x):
+		broke_out = True
+		break
+	do_something_else(x)
+if not broke_out:
+	print ("I didn't break out!")
+'''
+
+# use else to rewrite
+from math import sqrt
+for n in range(99,80,-1):
+	root = sqrt(n)
+	if root == int(root):
+		print (n)
+		break
+	else:
+		print ("Didn't find it!")
+
+# list comprehension, lightway iteration
+print ("[x*x for x in range(10)] =", [x*x for x in range(10)])
+print ("[x*x for x in range(10) if x%3 == 0] =", [x*x for x in range(10) if x%3 == 0])
+print ("[(x,y) for x in range(3) for y in range(3)] =", [(x,y) for x in range(3) for y in range(3)])
+# use "for" to create same list
+result = []
+for x in range(3):
+	for y in range(3):
+		result.append((x,y))
+print ("result =", result)
+# use with "if"
+girls = ['alice', 'bernice', 'clarice']
+boys = ['chris', 'arnold', 'bob']
+print ("[b+'+'+g for b in boys for g in girls if b[0] == g[0]] =", [b+'+'+g for b in boys for g in girls if b[0] == g[0]])
+# better solution
+girls = ['alice', 'bernice', 'clarice']
+boys = ['chris', 'arnold', 'bob']
+letterGirls = {}
+for girl in girls:
+	letterGirls.setdefault(girl[0],[]).append(girl)
+print ("[b+'+'+g for b in boys for g in letterGirls[b[0]]] =", [b+'+'+g for b in boys for g in letterGirls[b[0]]])
+
+# pass, del and exec
+# "pass" as a placeholder
+if name == 'Ralph Auldus Melish':
+	print ('Welcome!')
+elif name == 'Enid':
+	# not completed yet, so use "pass" to skip temporarily
+	pass
+elif name == 'Bill Gates':
+	print ('Access Denied')
+
+# del: python only delete name, which means remove the reference and the name, but not the value.
+# assign none to delete
+scoundrel = {'age':42, 'first name':'Robin', 'last name':'of Locksley'}
+robin = scoundrel
+print ("scoundrel =", scoundrel)
+print ("robin =", robin)
+scoundrel = None
+print ("robin after scoundrel = None: ", robin)
+
 
 
 
