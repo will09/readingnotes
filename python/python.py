@@ -1004,6 +1004,43 @@ print ("robin =", robin)
 scoundrel = None
 print ("robin after scoundrel = None: ", robin)
 
+# exec and eval
+exec ("print ('Hello, world!')")
+
+# chapter 6
+fibs = [0,1]
+for i in range(8):
+	fibs.append(fibs[-2]+fibs[-1])
+print ("fibs =", fibs)
+
+# define function
+def hello(name):
+	return 'Hello, ' + name + '!'
+print (hello('world'))
+print (hello('Gumby'))
+
+def fibs(num):
+	result = [0,1]
+	for i in range(num-2):
+		result.append(result[-2]+result[-1])
+	return result
+print (fibs(10))
+
+# record function: if write down string at the beginning of the function, it will store as the part of function, which called document string
+def square(x):
+	'Calculates the square of the number x.'
+	return x*x
+print ("square.__doc__ =", square.__doc__)
+help(square)
+
+# one of usage of return, similar with break
+def test():
+	print ('This is printed')
+	return
+	print ('This is not')
+
+x = test()
+print ("x =", x)
 
 
 
