@@ -1042,6 +1042,316 @@ def test():
 x = test()
 print ("x =", x)
 
+# change parameter: assign value for variables in function won't change the value of outside variables
+def try_to_change(n):
+	n = "Mr. Gumby"
+
+name = 'Mrs. Entity'
+try_to_change(name)
+print ("name =", name)
+
+# the previous example is similar with the following ones:
+name = 'Mrs. Entity'
+n = name
+n = 'Mr. Gumby'
+print ("name =", name)
+
+# use variable data structure (list) as parameter
+def change(n):
+	n[0] = 'Mr. Gumby'
+
+names = ['Mrs. Entity', 'Mrs. Thing']
+change(names)
+print ("names =", names)
+
+# do not call function
+names = ['Mrs. Entity', 'Mrs. Thing']
+n = names # once again, simulate to give parameter
+n[0] = 'Mr. Gumby' # change list
+print ("names =", names)
+
+# slice and different list, return the copy
+names = ['Mrs. Entity', 'Mrs. Thing']
+n = names[:] # now, n and name are independent list, have the same value
+print ("n is names =", n is names)
+print ("n == names =", n == names)
+# now change n won't affect names
+n[0] = 'Mr. Gumby'
+print ("n =", n)
+print ("names =", names)
+# try change function
+change(names[:])
+print ("names =", names)
+
+# initialize data structure funcion
+def init(data):
+	data['first'] = {}
+	data['middle'] = {}
+	data['last'] = {}
+
+storage = {}
+init(storage)
+print ("storage =", storage)
+
+# function
+def lookup(data, label, name):
+	return data[label].get(name)
+
+me = 'Magnus Lie Hetland'
+storage['first']['Magnus'] = [me]
+storage['middle']['Lie'] = [me]
+storage['last']['Hetland'] = [me]
+
+print (lookup(storage, 'middle', 'Lie'))
+
+#
+'''
+def store(data, full_name):
+	names = full_name.split()
+	if len(names) == 2: names.insert(1,'')
+	labels = 'first','middle','last'
+for label, name in zip(labels, names):
+	people = lookup(data, label, name)
+	if people:
+		people.append(full_name)
+	else:
+		data[label][name] = [full_name]
+'''
+
+'''
+MyNames = {}
+init(MyNames)
+store(MyNames, 'Magnus Lie Hetland')
+lookup(MyNames, 'Middle', 'Lie')
+'''
+'''
+store(MyNames, 'Robin Hood')
+store(MyNames, 'Robin Locksley')
+lookup(MyNames, 'first', 'Robin')
+store(MyNames, 'Mr. Gumby')
+lookup(MyNames, 'middle', '')
+'''
+
+def inc(x): return x+1
+foo = 10
+foo = inc(foo)
+print ("foo =", foo)
+
+# key parameter and default value
+def hello_1(greeting, name):
+	print ('%s, %s' % (greeting, name))
+def hello_2(name, greeting):
+	print ('%s, %s' % (name, greeting))
+hello_1('Hello', 'world')
+hello_2('Hello', 'world')
+hello_1(greeting='Hello', name='world')
+hello_1(name='world', greeting='Hello')
+hello_2(greeting='Hello', name='world')
+# given default value when define function
+def hello_3(greeting='Hello', name='world'):
+	print ('%s, %s!' % (greeting, name))
+hello_3()
+hello_3('Greetings')
+hello_3('Greetings', 'universe')
+hello_3(name='Gumby')
+#
+def hello_4(name, greeting='Hello', punctuation='!'):
+	print ('%s, %s%s' % (greeting, name, punctuation))
+hello_4('Mars')
+hello_4('Mars', 'Howdy')
+hello_4('Mars', 'Howdy', '...')
+hello_4('Mars', punctuation='.')
+hello_4('Mars', greeting='Top of the morning to ya')
+
+# collect parameters
+def print_params(*params):
+	print (params)
+print_params('Testing')
+print_params(1,2,3)
+# union common parameters
+def print_params_2(title, *params):
+	print (title)
+	print (params)
+print_params_2('Params:', 1,2,3)
+print_params_2('Nothing:')
+# handle key value parameters
+def print_params_3(**params):
+	print (params)
+print_params_3(x=1, y=2, z=3)
+# put together, *params, **params
+def print_params_4(x, y, z=3, *pospar, **keypar):
+	print (x, y, z)
+	print (pospar)
+	print (keypar)
+print_params_4(1, 2, 3, 4, 5, 6, 7, foo=1, bar=2)
+
+# multiple names store at the same time
+def store(data, *full_names):
+	for full_name in full_names:
+		names = full_name.split()
+		if len(names) == 2: names.insert(1, '')
+		labels = 'first', 'middle', 'last'
+		for label, name in zip(labels, names):
+			people = lookup(data, label, name)
+			if people:
+				people.append(full_name)
+			else:
+				data[label][name] = [full_name]
+
+d = {}
+init(d)
+store(d, 'Han Solo')
+store(d, 'Luke Skywalker', 'Anakin Skywalker')
+print (lookup(d, 'last', 'Skywalker'))
+
+# reverse
+def add(x, y): return x+y
+params = (1,2)
+print ("add(*params) =", add(*params))
+
+# use **
+params = {'name': 'Sir Robin', 'greeting': 'Well met'}
+hello_3(**params) 
+
+def with_stars(**kwds):
+	print (kwds['name'], 'is', kwds['age'], 'years old.')
+
+def without_stars(kwds):
+	print (kwds['name'], 'is', kwds['age'], 'years old.')
+args = {'name': 'Mr. Gumby', 'age': 42}
+with_stars(**args)
+without_stars(args)
+
+# use aplicing operator to transfer parameters no need to care the numbers of operator, for example
+def foo(x, y, z, m=0, n=0):
+	print (x, y, z, m, n)
+def call_foo(*args, **kwds):
+	print ("Calling foo!")
+#foo(*args, **kwds)
+
+# practice to use parameter
+def story(**kwds):
+	return ('Once upon a time, there was a %(job)s called %(name)s.' % kwds)
+def power(x, y, *others):
+	if others:
+		print ('Received redundant parameters:', others)
+	return pow(x, y)
+def interval(start, stop=None, step=1):
+	'Imitates range() for step > 0'
+	if stop is None:			# if didn't provide value of stop
+		start, stop = 0, start 	# specify parameter
+	result = []
+	i = start 					# compute start index
+	while i < stop:				# until to the index of stop
+		result.append(i)		# add index to result
+		i += step 				# use step (>0) to increase index i
+	return result
+
+print (story(job='king', name='Gumby'))
+print (story(name='Sir Robin', job='brave knight'))
+params = {'job': 'Language', 'name': 'Python'}
+print (story(**params))
+print ("power(2,3) =", power(2,3))
+print ("power(3,2) =", power(3,2))
+print ("power(y=3, x=2) =", power(y=3, x=2))
+params = (5,)*2
+print ("power(*params) =", power(*params))
+print ("power(3,3,'Hello, world') =", power(3,3,'Hello, world'))
+print (interval(10))
+print (interval(1,5))
+print (interval(3,12,4))
+print (power(*interval(3,7)))
+
+# range of variable, build-in function: vars
+x = 1
+scope = vars()
+print (scope['x'])
+scope['x'] += 1
+print (x)
+
+def foo(): x = 42
+x = 41
+foo()
+print ("x =", x)
+
+def output(x): print (x)
+x = 1
+y = 2
+output(y)
+
+# be careful, the following is not a good way, get the value of global variable inside function
+def combine(parameter): print (parameter + external)
+external = 'berry'
+combine('Shrub')
+
+# shadowing issue: local & global variables have the same name, use globals()['parameter']
+def combine(parameter):
+	print (parameter + globals()['parameter'])
+parameter = 'berry'
+combine('Shrub')
+
+# assign value for a variable in 
+x = 1
+def change_global():
+	global x
+	x = x + 1
+change_global()
+print ("x =", x)
+
+def foo():
+	def bar():
+		print ("Hello, world!")
+# bar()
+
+# use one function to create another one
+def multiplier(factor):
+	def multiplyByFactor(number):
+		return number*factor
+	return multiplyByFactor
+
+double = multiplier(2)
+print (double(5))
+triple = multiplier(3)
+print (triple(3))
+print (multiplier(5)(4))
+
+# recursion: factorial and power
+def factorial(n):
+	result = n
+	for i in range(1,n):
+		result *= i
+	return result
+
+def factorial(n):
+	if n == 1:
+		return 1
+	else:
+		return n*factorial(n-1)
+
+def power(x, n):
+	result = 1
+	for i in range(n):
+		result *= x
+	return result
+
+def power(x, n):
+	if n == 0:
+		return 1
+	else:
+		return x * power(x, n-1)
+
+# binary search
+def search(sequence, number, lower, upper):
+	if lower == upper:
+		assert number == sequence[upper]
+		return upper
+	else:
+		middle = (lower+upper)//2
+		if number > sequence[middle]:
+			return search(sequence, number, middle+1, upper)
+		else:
+			return search(sequence, number, lower, middle)
+
 
 
 
