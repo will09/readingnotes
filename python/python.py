@@ -1340,8 +1340,9 @@ def power(x, n):
 	else:
 		return x * power(x, n-1)
 
-# binary search
-def search(sequence, number, lower, upper):
+# binary search: (standard library: bisect)
+def search(sequence, number, lower=0, upper=None):
+	if upper is None: upper = len(sequence)-1
 	if lower == upper:
 		assert number == sequence[upper]
 		return upper
@@ -1351,6 +1352,278 @@ def search(sequence, number, lower, upper):
 			return search(sequence, number, middle+1, upper)
 		else:
 			return search(sequence, number, lower, middle)
+seq = [34,67,8,123,4,100,95]
+seq.sort()
+print (seq)
+print (search(seq, 34))
+print (search(seq, 100))
+
+# map
+map(str, range(10)) # Equivalent to [str(i) for i in range(10)]
+
+# filter: filter elements based on the function with boolean return value.
+def func(x):
+	return x.isalnum()
+
+seq = ["foo", "x41", "?!", "***"]
+filter(func, seq)
+
+# use derivation and no need to define a function
+print ([x for x in seq if x.isalnum()])
+
+# reduce, not exist in 3.0
+numbers = [72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33]
+# reduce(lambda x, y: x+y, numbers)
+
+# chapter 7
+# polymorphism
+print ("'abc'.count('a') =", 'abc'.count('a')) # string
+print ("[1,2,'a'].count('a') =", [1,2,'a'].count('a')) # list
+
+from random import choice
+x = choice(['Hello, world!', [1,2,'e','e',4]])
+print ("x =", x)
+print ("x.count('e') =", x.count('e'))
+
+# build-in function has polymorphism property
+print ("1+2 =", 1+2)
+print ("'Fish'+'license' =", 'Fish'+'license')
+
+# customize add function, and this will be less efficient than add function in operator module
+# the beauty of this add is which can support plus objects
+def add(x,y):
+	return x+y
+print ("add(1,2) =", add(1,2))
+print ("add('Fish', 'license') =", add('Fish', 'license'))
+
+def length_message(x):
+	print ("The length of", repr(x), "is", len(x))
+
+length_message("Fnord")
+length_message([1,2,3])
+
+# Encapsulation
+'''
+o = OpenObject() # This is how we create objects...
+o.setName('Sir lancelot')
+o.getName()
+'''
+
+# Inheritance
+
+# create your own class
+__metaclass__ = type # to use new class
+class Person:
+	def setName(self, name):
+		self.name = name
+
+	def getName(self):
+		return self.name
+
+	def greet(self):
+		print ("Hello, world! I'm %s." % self.name)
+
+foo = Person()
+bar = Person()
+foo.setName('Luke Skywalker')
+bar.setName('Anakin Skywalker')
+foo.greet()
+bar.greet()
+foo.name
+bar.name = 'Yoda'
+bar.greet()
+
+class Class:
+	def method(self):
+		print ('I have a self!')
+
+def function():
+	print ("I don't...")
+
+instance = Class()
+instance.method()
+instance.method = function
+instance.method()
+
+class Bird:
+	song = "Squaawk!"
+	def sing(self):
+		print (self.song)
+
+bird = Bird()
+bird.sing()
+birdsong = bird.sing
+birdsong()
+
+class Secretive:
+	def __inaccessible(self):
+		print ("Bet you can't see me...")
+	def accessible(self):
+		print ("The secret message is:")
+		self.__inaccessible()
+
+s = Secretive()
+s.accessible()
+
+# naming space
+def foo(x): return x*x
+foo = lambda x: x*x
+
+class C:
+	print ('Class C being defined...')
+
+class MemberCounter:
+	members = 0
+	def init(self):
+		MemberCounter.members += 1
+
+m1 = MemberCounter()
+m1.init()
+print ("MemberCounter.members", MemberCounter.members)
+m2 = MemberCounter()
+m2.init()
+print ("MemberCounter.members", MemberCounter.members)
+print ("m1.members =", m1.members)
+print ("m2.members =", m2.members)
+# rebind members
+m1.members = 'Two'
+print ("m1.members =", m1.members)
+print ("m2.members =", m2.members)
+
+class Filter:
+	def init(self):
+		self.blocked = []
+	def filter(self, sequence):
+		return [x for x in sequence if x not in self.blocked]
+class SPAMFilter(Filter):
+	def init(self):
+		self.blocked = ['SPAM']
+f = Filter()
+f.init()
+print ("f.filter([1,2,3]) =", f.filter([1,2,3]))
+s = SPAMFilter()
+s.init()
+print (s.filter(['SPAM', 'SPAM', 'SPAM', 'SPAM', 'eggs', 'bacon', 'SPAM']))
+
+# investigate Inheritance
+# is subclass?
+print (issubclass(SPAMFilter, Filter))
+print (issubclass(Filter, SPAMFilter))
+# is baseclass?
+print (SPAMFilter.__bases__)
+print (Filter.__bases__)
+# is instance?
+s = SPAMFilter()
+print (isinstance(s, Filter))
+print (isinstance(s, str))
+# belong to class?
+print (s.__class__)
+
+# multiple super class, multiple inheritance
+class Calculator:
+	def calculate(self, expression):
+		self.value = eval(expression)
+
+class Talker:
+	def talk(self):
+		print ('Hi, my value is', self.value)
+
+class TalkingCalculator(Calculator, Talker):
+	pass
+
+tc = TalkingCalculator()
+tc.calculate('1+2*3')
+tc.talk()
+
+print ("hasattr =", hasattr(tc, 'talk'))
+print ("hasattr =", hasattr(tc, 'fnord'))
+
+# check callable
+print ("callable =", callable(getattr(tc, 'talk', None)))
+print ("callable =", callable(getattr(tc, 'fnord', None)))
+
+setattr(tc, 'name', 'Mr. Gumby')
+print ("tc.name =", tc.name)
+
+# chapter 8 Exception
+#raise Exception
+
+# customize exception
+class SomeCustomException(Exception): pass
+
+# capture exception
+try: 
+	x = 10
+	y = 0
+	print ("x/y =", x/y)
+except ZeroDivisionError:
+	print ("The second number can't be zero!")
+except TypeError:
+	print ("That wasn't a number, was it?")
+
+class MuffledCalculator:
+	muffled = False
+	def calc(self, expr):
+		try:
+			return eval(expr)
+		except ZeroDivisionError:
+			if self.muffled:
+				print ("Division by zero is illegal")
+			else:
+				raise
+
+calculator = MuffledCalculator()
+print (calculator.calc('10/2'))
+# calculator.calc('10/0') # No muffling
+calculator.muffled = True
+calculator.calc('10/0')
+
+# 8.5 use one block to catch two more exception
+try:
+	x = 10
+	y = 0
+	print (x/y)
+except (ZeroDivisionError, TypeError, NameError):
+	print ("Your numbers were bogus...")
+
+# 8.6 capture object
+try:
+	x = 10
+	y = 0
+	print (x/y)
+except (ZeroDivisionError, TypeError) as e:
+	print ("exception message: ", e)
+
+# 8.8 
+try:
+	print ("A simple task.")
+except:
+	print ("What? Something went wrong?")
+else:
+	print ("Ah... It went as planned.")
+
+'''
+while True:
+	try:
+		x = input ("Enter the first number: ")
+		y = input ("Enter the second number: ")
+		value = x/y
+		print ("x/y is", value)
+	except:
+		print ("Invalid input. Please try again.")
+	else:
+		break
+'''
+
+
+
+
+
+
+
+
+
+
 
 
 
