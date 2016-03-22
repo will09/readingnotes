@@ -1,0 +1,20 @@
+http://www.cbi.pku.edu.cn/chinese/documents/perl/index.htm
+
+Perl 数组的用法 push pop shift unshift 
+push：从数组的末尾加入元素;
+pop ：从数组的末尾取出元素;
+shift：  从数组的开头取出元素;
+unshift：从数组的开头加入元素;
+
+Perl将值写入文件，参考实例如下：
+1、open( my $fh, '>', 'fruit.out' ) or die $!;
+print $fh $_ for @output;
+2、open (OUTFILE,">>./outfile");
+print OUTFILE "$a";
+close(OUTFILE);
+数组写入如下：
+#从头开始写
+open(FILE,">fruit.txt");
+#文件结尾追加
+open(FILE,">>fruit.txt");
+print FILE "@arr";
