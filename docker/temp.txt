@@ -1,0 +1,22 @@
+paxos算法：一种基于消息传递的一致性算法。这个算法被认为是类似算法中最有效的。
+Paxos 算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致。一个通用的一致性算法可以应用在许多场景中，是分布式计算中的重要问题。
+节点通信存在两种模型：共享内存（Shared memory）和消息传递（Messages passing）。Paxos 算法就是一种基于消息传递模型的一致性算法。
+
+
+raft算法
+Raft一致性算法  
+http://blog.csdn.net/cszhouwei/article/details/38374603
+
+phxsql
+http://www.oschina.net/news/76658/tecent-wechat-opensource-phxsql
+PhxSQL 是一个兼容 MySQL、服务高可用、数据强一致的关系型数据库集群。PhxSQL 以单 Master 多 Slave 方式部署，在集群内超过一半机器存活的情况下，可自身实现自动 Master 切换，且保证数据一致性。PhxSQL 基于 Percona 5.6 开发。Percona 是 MySQL 的一个分支，功能和实现与 MySQL 基本一致。
+
+binlog
+binlog基本定义：二进制日志，也成为二进制日志，记录对数据发生或潜在发生更改的SQL语句，并以二进制的形式保存在磁盘中；
+
+tidb
+TiDB 是数据库领域的顶级开源项目，致力于完美实现弹性伸缩，支持 SQL 语句，ACID 事务一致性和真正的高可用性等分布式关系型数据库的理想状态。
+
+MHA
+http://cache.baiducontent.com/c?m=9d78d513d99c1bfc4caad420024c91205b43811021ca9b4b3ad0914a97735b361738beee30226703d0943a3a16af3e0db7af2b74320126b198d58b4dd9b1982f2e95&p=9e73dd029f934eac53ef8e2d0214cf&newp=aa6dc45d85cc43ff57ee9f7c495688231610db2151d4d3166b82c825d7331b001c3bbfb423231106d2c2766306a54f5ce1f131733c0927a3dda5c91d9fb4c57479&user=baidu&fm=sc&query=MHA&qid=eed17ac7000056d0&p1=2
+采用mha架构实现mysql master的ha和自动failover，进而结合atlas数据库代理完成mysql数据库的整体读写请求分离，同时在atlas这层实现ha和failover，避免单点故障。
