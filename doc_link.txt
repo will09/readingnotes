@@ -1,0 +1,21 @@
+微服务架构软件的持续集成与交付
+https://segmentfault.com/a/1190000005063220
+
+基于maven和hudson打造持续集成环境 
+CI架构
+http://blog.csdn.net/cutesource/article/details/5772346
+
+如何选择正确的DevOps工具
+http://wiki.csdn.net/pages/viewpage.action?pageId=3014736&src=contextnavpagetreemode
+
+使用Jenkins来构建Docker容器(Ubuntu 14.04)
+http://www.cnblogs.com/Leo_wl/p/4314792.html
+
+docker
+http://yuedu.baidu.com/ebook/d817967416fc700abb68fca1?fr=aladdin&key=docker&f=read###
+
+多个敏捷团队之间的版本控制
+http://www.infoq.com/cn/articles/agile-version-control#cont23
+
+Gitflow Workflow
+https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
