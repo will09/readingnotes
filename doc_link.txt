@@ -1,6 +1,27 @@
 微服务架构软件的持续集成与交付
 https://segmentfault.com/a/1190000005063220
 
+案例剖析：从0开始搭建一个微服务的持续交付系统
+http://www.infoq.com/cn/articles/from-0-to-build-a-micro-service-delivery-system?utm_source=articles_about_operation&utm_medium=link&utm_campaign=operation
+
+RESTful API 设计指南
+http://www.ruanyifeng.com/blog/2014/05/restful_api.html
+
+RESTful API 设计最佳实践
+http://blog.jobbole.com/41233/
+
+微服务实战（一）：微服务架构的优势与不足
+http://kb.cnblogs.com/page/521880/
+
+微服务(Microservice)架构快速指南
+http://www.jdon.com/soa/microservice-architecture.html
+
+微服务（Microservice）那点事
+http://www.oschina.net/news/70121/microservice
+
+分布式服务框架 Zookeeper -- 管理分布式环境中的数据
+http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
+
 基于maven和hudson打造持续集成环境 
 CI架构
 http://blog.csdn.net/cutesource/article/details/5772346
@@ -20,5 +41,17 @@ http://www.infoq.com/cn/articles/agile-version-control#cont23
 Gitflow Workflow
 https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 
-非常详细的 Docker 学习笔记 
-http://blog.csdn.net/zjin_hua/article/details/52041757
+Git工作流指南：Pull Request工作流
+http://blog.jobbole.com/76854/
+
+DevOps入门指南
+https://zhuanlan.zhihu.com/p/22638204
+
+How we build code at Netflix
+http://techblog.netflix.com/2016/03/how-we-build-code-at-netflix.html
+
+DevOps实战：百度持续交付体系与最佳实践大解密！
+http://dbaplus.cn/news-21-471-1.html
+
+Confluence演示
+http://www.confluence.cn/pages/viewpage.action?pageId=360475
