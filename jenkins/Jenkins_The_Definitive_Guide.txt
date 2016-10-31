@@ -1,0 +1,37 @@
+1. Getting more serious about testing
+The application is no longer simply compiled and tested, but if the tests pass, it is automatically deployed to an application server for more comprehensive end-to-end tests and performance tests.
+
+2.jenkins pre-requisition
+1) JRE
+
+3.install git on linux
+1) Ubuntu or some other Debian-based distribution
+$sudo apt-get install git-core
+2) Fedora or another RPM-based distribution, use yum instead
+$sudo yum install git-core
+3) check git installed
+$git --version
+
+4. Forking the Sample Repository
+1) go to website: 
+https://github.com/wakaleo/game-of-life
+2) click fork
+3) clone to local
+$git clone git@github.com:<username>/game-of-life.git
+4) if permission issue, generate key first
+----------------------------------
+Permission denied (publickey).
+fatal: The remote end hung up unexpectedly
+----------------------------------
+how to generate keys
+a) open local machine git bash and input: ssh-keygen -t rsa
+b) login your GIThub account
+c) Navigate your profile and select edit mode
+d) click SSH key tab and click 'Add SSH Key' button
+e) open local machine home_directory/.ssh/id_rsa.pub copy contents and paste into your key textarea.
+
+
+
+
+
+
