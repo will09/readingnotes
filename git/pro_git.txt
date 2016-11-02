@@ -1,0 +1,76 @@
+集中式版本控制系统缺点：单点故障，客户端留存的是版本文件快照。
+分布式版本控制系统：
+1）把原始的代码仓库完整地镜像下来。
+2）可以指定不同的远端代码仓库，可以和不同工作小组相互协作 。
+
+git数据完整性
+git使用SHA-1算法计算数据的校验和，通过对文件的内容或目录的结构计算出一个SHA-1哈希值，作为指纹字符串。该字符串由40个十六进制字符（0-9及a-f）组成，所有保存在git数据库中的东西都是用此哈希值来作索引的，而不是靠文件名。
+
+git三种状态
+对任何一个文件，在git内都只有三种状态：已提交(committed)，已修改(modified)和已暂存(staged)
+
+git config
+用来配置或读取相应的工作环境变量，这些变量可以存放在以下三个不同的地方：
+1）/etc/gitconfig文件
+	系统中对所有用户都普遍适用的配置。若使用git config时用--system选项，读写的就是这个文件。
+2）~/.gitconfig文件
+	用户目录下的配置文件只适用于该用户。若使用git config时用--global选项，读写的就是这个文件。
+3）当前项目的git目录中的配置文件（也就是工作目录中的.git/config文件）
+	这里的配置仅仅针对当前项目有效。
+每一个级别的配置都会覆盖上层的相同配置，所以.git/config里的配置会覆盖/etc/gitconfig中的同名变量。
+
+git配置用户信息
+配置个人用户名称和电子邮件地址。
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+如果要在某个特定的项目中使用其他名字或者电子邮件，去掉--global选项重新配置即可，新的设定保存在当前项目的.git/config文件里。
+
+git设置文本编辑器
+git config --global core.editor emacs
+
+差异分析工具
+git config --global merge.tool vimdiff
+
+查看配置信息
+git config --list
+查看某个环境变量的设定
+git config user.name
+
+获取帮助
+git help <verb>
+git <verb> --help
+man git-<verb>
+for example: git help config
+
+取得项目的git仓库
+1）从当前目录初始化
+git init
+将文件纳入版本控制，使用git add
+for example:
+git add *.c
+git add README
+git commit -m 'initial project version'
+2） 从现有仓库克隆
+git clone git://github.com/schacon/grit.git
+git clone git://github.com/schacon/grit.git mygrit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
