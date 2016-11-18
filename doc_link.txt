@@ -67,8 +67,14 @@ http://www.confluence.cn/pages/viewpage.action?pageId=360475
 JIRA管理
 https://confluence.atlassian.com/adminjiraserver071/view-create-or-delete-a-group-802592335.html
 
+Sonar安装使用篇
+http://www.cnblogs.com/cuiliqiang/archive/2012/10/15/2725146.html
 
+SonarQube架构与集成
+http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration
 
+bambooBamboo入门教程及基础操作
+http://bbs.csdn.net/topics/390649112
 
 
 
