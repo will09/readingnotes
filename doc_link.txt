@@ -1,14 +1,14 @@
-微服务架构软件的持续集成与交付
-https://segmentfault.com/a/1190000005063220
-
-案例剖析：从0开始搭建一个微服务的持续交付系统
-http://www.infoq.com/cn/articles/from-0-to-build-a-micro-service-delivery-system?utm_source=articles_about_operation&utm_medium=link&utm_campaign=operation
-
 RESTful API 设计指南
 http://www.ruanyifeng.com/blog/2014/05/restful_api.html
 
 RESTful API 设计最佳实践
 http://blog.jobbole.com/41233/
+------------------------------------------------------
+微服务架构软件的持续集成与交付
+https://segmentfault.com/a/1190000005063220
+
+案例剖析：从0开始搭建一个微服务的持续交付系统
+http://www.infoq.com/cn/articles/from-0-to-build-a-micro-service-delivery-system?utm_source=articles_about_operation&utm_medium=link&utm_campaign=operation
 
 微服务实战（一）：微服务架构的优势与不足
 http://kb.cnblogs.com/page/521880/
@@ -26,23 +26,32 @@ http://www.infoq.com/cn/articles/best-practice-of-constructing-micro-service-sys
 http://www.infoq.com/cn/articles/best-practice-of-constructing-micro-service-system-part02
 3/3
 http://www.infoq.com/cn/articles/best-practice-of-constructing-micro-service-system-part03
-
+--------------------------------------------------------------------------------------
 分布式服务框架 Zookeeper -- 管理分布式环境中的数据
 http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
-
+--------------------------------------------------------------------------
 基于maven和hudson打造持续集成环境 
 CI架构
 http://blog.csdn.net/cutesource/article/details/5772346
 
-如何选择正确的DevOps工具
-http://wiki.csdn.net/pages/viewpage.action?pageId=3014736&src=contextnavpagetreemode
-
 使用Jenkins来构建Docker容器(Ubuntu 14.04)
 http://www.cnblogs.com/Leo_wl/p/4314792.html
 
-docker
-http://yuedu.baidu.com/ebook/d817967416fc700abb68fca1?fr=aladdin&key=docker&f=read###
+How we build code at Netflix
+http://techblog.netflix.com/2016/03/how-we-build-code-at-netflix.html
+--------------------------------------------------------------------
+DevOps入门指南
+https://zhuanlan.zhihu.com/p/22638204
 
+如何选择正确的DevOps工具
+http://wiki.csdn.net/pages/viewpage.action?pageId=3014736&src=contextnavpagetreemode
+
+DevOps实战：百度持续交付体系与最佳实践大解密！
+http://dbaplus.cn/news-21-471-1.html
+-----------------------------------------------------------------
+docker入门实战
+http://yuedu.baidu.com/ebook/d817967416fc700abb68fca1?fr=aladdin&key=docker&f=read###
+-------------------------------------------------------------------------------------------
 多个敏捷团队之间的版本控制
 http://www.infoq.com/cn/articles/agile-version-control#cont23
 
@@ -52,14 +61,13 @@ https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workf
 Git工作流指南：Pull Request工作流
 http://blog.jobbole.com/76854/
 
-DevOps入门指南
-https://zhuanlan.zhihu.com/p/22638204
+A successful Git branching model
+http://nvie.com/posts/a-successful-git-branching-model/
 
-How we build code at Netflix
-http://techblog.netflix.com/2016/03/how-we-build-code-at-netflix.html
-
-DevOps实战：百度持续交付体系与最佳实践大解密！
-http://dbaplus.cn/news-21-471-1.html
+【过程改进】总结大中小型项目的git流程
+http://www.cnblogs.com/dubing/p/3709759.html
+--------------------------------------------------------------------------
+Atlassian tools
 
 Confluence演示
 http://www.confluence.cn/pages/viewpage.action?pageId=360475
@@ -67,14 +75,34 @@ http://www.confluence.cn/pages/viewpage.action?pageId=360475
 JIRA管理
 https://confluence.atlassian.com/adminjiraserver071/view-create-or-delete-a-group-802592335.html
 
+bambooBamboo入门教程及基础操作
+http://bbs.csdn.net/topics/390649112
+-------------------------------------------------
+Sonar related
+
 Sonar安装使用篇
 http://www.cnblogs.com/cuiliqiang/archive/2012/10/15/2725146.html
 
 SonarQube架构与集成
 http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration
 
-bambooBamboo入门教程及基础操作
-http://bbs.csdn.net/topics/390649112
+SonarQube代码质量管理平台安装与使用 
+http://blog.csdn.net/hunterno4/article/details/11687269
+
+SonarQube 3.6 代码质量管理实战
+http://www.ibm.com/developerworks/cn/opensource/os-sonarqube/
+
+SonarQube4.4+Jenkins进行代码检查实例之一 
+http://blog.csdn.net/zhangmike/article/details/39151151
+----------------------------------------------------------------------
+提高 Java 代码质量
+http://www.ibm.com/developerworks/cn/java/cq/
+--------------------------------------------------------------
+
+
+
+
+
 
 
 
