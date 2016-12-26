@@ -98,9 +98,13 @@ http://blog.csdn.net/zhangmike/article/details/39151151
 提高 Java 代码质量
 http://www.ibm.com/developerworks/cn/java/cq/
 --------------------------------------------------------------
+使用Maven管理Java项目 
+https://segmentfault.com/a/1190000003044418
 
+maven入门之helloworld 
+http://blog.csdn.net/yjq_java/article/details/51981232
 
-
+-------------------------------------------------------------------------
 
 
 
