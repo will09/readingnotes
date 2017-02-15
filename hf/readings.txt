@@ -1,0 +1,6 @@
+蚂蚁金服CTO程立：金融级分布式交易的技术路径
+http://mp.weixin.qq.com/s/xnbveFreGvN72e52J26wqQ
+
+《金融电子化》陈波：分布式架构关键设计与实践探索
+http://mp.weixin.qq.com/s/D3kTJRB04uH-gBJ74ivUFg
+

@@ -75,8 +75,12 @@ http://www.confluence.cn/pages/viewpage.action?pageId=360475
 JIRA管理
 https://confluence.atlassian.com/adminjiraserver071/view-create-or-delete-a-group-802592335.html
 
+高效能团队协作的JIRA实践
+http://www.csdn.net/article/2015-05-21/2824739?utm_source=tuicool
+
 bambooBamboo入门教程及基础操作
 http://bbs.csdn.net/topics/390649112
+
 -------------------------------------------------
 Sonar related
 
@@ -104,9 +108,34 @@ https://segmentfault.com/a/1190000003044418
 maven入门之helloworld 
 http://blog.csdn.net/yjq_java/article/details/51981232
 
+Maven 常用配置
+http://www.cnblogs.com/mingforyou/p/4511472.html
+
 -------------------------------------------------------------------------
+Jenkins的配置
+目录结构，备份恢复等。
+http://www.cnblogs.com/itech/archive/2011/11/04/2236230.html
 
+持续集成Jenkins+sonarqube部署教程
+http://www.cnblogs.com/mingshengling/p/5751299.html
 
+Pipeline as Code with Jenkins
+https://jenkins.io/solutions/pipeline/
+------------------------------------------------------------------------
+分布式配置管理平台Disconf
+http://www.liaoqiqi.com/post/219
+
+disconf分布式配置管理平台
+http://www.ttlsa.com/news/distributed-configuration-management-platform/
+
+disconf doc
+http://disconf.readthedocs.io/zh_CN/latest/
+
+disconf demo
+https://github.com/knightliao/disconf-demos-java
+-------------------------------------------------------------------------
+dubbo user guide
+http://dubbo.io/User+Guide-zh.htm
 
 
 
